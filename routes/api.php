@@ -18,6 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Users
 Route::resource('users', 'User\UserController', ['except' => ['create', 'edit']]);
 
+// Posts
 Route::resource('posts', 'Post\PostController', ['except' => ['create', 'edit']]);
+
+// Category
+Route::resource('categories', 'Category\CategoryController', ['except' => ['create', 'edit']]);
