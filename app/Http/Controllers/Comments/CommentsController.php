@@ -27,7 +27,19 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'name' => 'required',
+            'alphabet' => 'required',
+            'comment' => 'required',
+            'post_id' => 'required'
+        ];
+
+        $this->validate($request, $rules);
+
+        $data = $request->all();
+
+        $comment = Comment::create($data);
+        return ['comment' => $comment];
     }
 
 
