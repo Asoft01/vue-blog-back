@@ -36,23 +36,9 @@ class CommentsController extends Controller
 
         $this->validate($request, $rules);
 
-        $data = $request->all();
-
+        $data= $request->all();
         $comment = Comment::create($data);
         return ['comment' => $comment];
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     /**
@@ -63,6 +49,8 @@ class CommentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
+        return ['status' => 'Comment Deleted Successfully'];
     }
 }
