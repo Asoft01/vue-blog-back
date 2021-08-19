@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('sub_content', 1000);
             $table->string('content', 2000);
             $table->integer('user_id')->index()->unsigned();
+            $table->integer('category_id')->index()->unsigned();
             $table->integer('views')->nullable();
             $table->boolean('share')->default(true);
             $table->string('image')->nullable();

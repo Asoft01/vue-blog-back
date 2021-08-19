@@ -47,7 +47,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::findOrFail($id);
+        // $category = Category::findOrFail($id);
+        $category = Category::with('posts')->findOrFail($id);
         return ['category' => $category];
     }
 

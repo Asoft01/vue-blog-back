@@ -3,3 +3,7 @@
  php artisan make:controller User/UserController -r
 
  php artisan make:controller Post/PostController -r
+
+ git remote -v
+
+ npm install vue-momemnt
